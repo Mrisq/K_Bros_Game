@@ -16,7 +16,15 @@ _global_script_class_icons={
 [application]
 
 config/name="GD_Project"
+run/main_scene="res://GD_Project/Main Menu GUI/MainMenu.tscn"
+
+[display]
+
+window/size/width=640
+window/size/height=480
+window/stretch/shrink=2.0
 
 [rendering]
 
+environment/default_clear_color=Color( 0.443137, 0.611765, 0.733333, 1 )
 environment/default_environment="res://default_env.tres"
