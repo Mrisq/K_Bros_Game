@@ -22,13 +22,8 @@ run/main_scene="res://GD_Project/Main Menu GUI/MainMenu.tscn"
 
 window/size/width=640
 window/size/height=480
-window/stretch/shrink=2.0
-
-[display]
-
-window/size/width=640
-window/size/height=480
 window/size/resizable=false
+window/stretch/shrink=2.0
 
 [rendering]
 
