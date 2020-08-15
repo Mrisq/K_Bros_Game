@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://GD_Project/Graphics/grass-background.png" type="Texture" id=1]
 [ext_resource path="res://GD_Project/Graphics/roadway-tilemap/tileset_roadway-tilemap.png" type="Texture" id=2]
+[ext_resource path="res://GD_Project/Graphics/Extras/trucks.png" type="Texture" id=3]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tileset_roadway-tilemap.png 0"
@@ -30,7 +31,7 @@
 
 [node name="Maze-003" type="Node2D"]
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Background" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
@@ -41,3 +42,52 @@ tile_set = SubResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -65532, 0, 3, -65527, 0, 3, -65522, 0, 3, 4, 0, 65539, 9, 0, 65539, 14, 0, 65539, 65540, 0, 65539, 65545, 0, 65539, 65550, 0, 65539, 131076, 0, 65539, 131081, 0, 65539, 131086, 0, 65539, 196612, 0, 65539, 196617, 0, 65539, 196622, 0, 65539, 327679, 0, 196608, 262144, 0, 196609, 262145, 0, 196609, 262146, 0, 196609, 262147, 0, 196609, 262148, 0, 262152, 262149, 0, 196609, 262150, 0, 196609, 262151, 0, 196609, 262152, 0, 196609, 262153, 0, 262152, 262154, 0, 196609, 262155, 0, 196609, 262156, 0, 196609, 262157, 0, 196609, 262158, 0, 262152, 262159, 0, 196609, 262160, 0, 196609, 262161, 0, 196609, 262162, 0, 196609, 262163, 0, 196609, 262164, 0, 196610, 327684, 0, 65539, 327689, 0, 65539, 327694, 0, 65539, 393220, 0, 65539, 393225, 0, 65539, 393230, 0, 65539, 458756, 0, 65539, 458761, 0, 65539, 458766, 0, 65539, 589823, 0, 196608, 524288, 0, 196609, 524289, 0, 196609, 524290, 0, 196609, 524291, 0, 196609, 524292, 0, 262152, 524293, 0, 196609, 524294, 0, 196609, 524295, 0, 196609, 524296, 0, 196609, 524297, 0, 262152, 524298, 0, 196609, 524299, 0, 196609, 524300, 0, 196609, 524301, 0, 196609, 524302, 0, 262152, 524303, 0, 196609, 524304, 0, 196609, 524305, 0, 196609, 524306, 0, 196609, 524307, 0, 196609, 524308, 0, 196610, 589828, 0, 65539, 589833, 0, 65539, 589838, 0, 65539, 655364, 0, 65539, 655369, 0, 65539, 655374, 0, 65539, 720900, 0, 65539, 720905, 0, 65539, 720910, 0, 65539, 851967, 0, 196608, 786432, 0, 196609, 786433, 0, 196609, 786434, 0, 196609, 786435, 0, 196609, 786436, 0, 262152, 786437, 0, 196609, 786438, 0, 196609, 786439, 0, 196609, 786440, 0, 196609, 786441, 0, 262152, 786442, 0, 196609, 786443, 0, 196609, 786444, 0, 196609, 786445, 0, 196609, 786446, 0, 262152, 786447, 0, 196609, 786448, 0, 196609, 786449, 0, 196609, 786450, 0, 196609, 786451, 0, 196609, 786452, 0, 196610, 851972, 0, 65539, 851977, 0, 65539, 851982, 0, 65539, 917508, 0, 65539, 917513, 0, 65539, 917518, 0, 65539, 983044, 0, 131075, 983049, 0, 131075, 983054, 0, 131075 )
+
+[node name="Extras" type="Sprite" parent="."]
+
+[node name="Truck" type="Sprite" parent="Extras"]
+position = Vector2( 56.1515, 125.017 )
+texture = ExtResource( 3 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 16 )
+
+[node name="trucks" type="Sprite" parent="Extras"]
+position = Vector2( 82.981, 21.7772 )
+rotation = 1.5708
+texture = ExtResource( 3 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 16, 32, 16 )
+
+[node name="trucks2" type="Sprite" parent="Extras"]
+position = Vector2( 140.722, 182.286 )
+rotation = -1.5708
+texture = ExtResource( 3 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 16, 32, 16 )
+
+[node name="trucks3" type="Sprite" parent="Extras"]
+position = Vector2( 211.176, 62.0368 )
+texture = ExtResource( 3 )
+centered = false
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 0, 16, 32, 16 )
+
+[node name="trucks4" type="Sprite" parent="Extras"]
+position = Vector2( 294.873, 125.075 )
+texture = ExtResource( 3 )
+centered = false
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 16 )
+
+[node name="trucks5" type="Sprite" parent="Extras"]
+position = Vector2( 245.079, 188.643 )
+texture = ExtResource( 3 )
+centered = false
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 16 )
