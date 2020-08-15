@@ -24,6 +24,12 @@ window/size/width=640
 window/size/height=480
 window/stretch/shrink=2.0
 
+[display]
+
+window/size/width=640
+window/size/height=480
+window/size/resizable=false
+
 [rendering]
 
 environment/default_clear_color=Color( 0.443137, 0.611765, 0.733333, 1 )
