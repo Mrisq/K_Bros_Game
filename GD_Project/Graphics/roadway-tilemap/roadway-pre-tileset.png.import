@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/water-pre-tileset.png-b79eed60e4c8d8af3b0300c9266bf805.stex"
+path="res://.import/roadway-pre-tileset.png-de67e8e739d49fdef16e948a5d8c6083.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GD_Project/Graphics/brickwall-tilemap/water-pre-tileset.png"
-dest_files=[ "res://.import/water-pre-tileset.png-b79eed60e4c8d8af3b0300c9266bf805.stex" ]
+source_file="res://GD_Project/Graphics/roadway-tilemap/roadway-pre-tileset.png"
+dest_files=[ "res://.import/roadway-pre-tileset.png-de67e8e739d49fdef16e948a5d8c6083.stex" ]
 
 [params]
 
