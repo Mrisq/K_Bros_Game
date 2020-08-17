@@ -10,9 +10,8 @@ onready var hurtbox = $HurtBox
 func _ready():
 	pass 
 
-
 func _process(delta):
-	offset += .3
+	offset += 2
 
 
 # signal received from the hurtbox that a projectile hitbox has entered it
