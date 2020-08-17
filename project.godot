@@ -25,6 +25,14 @@ window/size/height=480
 window/size/resizable=false
 window/stretch/shrink=2.0
 
+[layer_names]
+
+2d_physics/layer_1="WorldOccupied"
+2d_physics/layer_2="TowerOccupied"
+2d_physics/layer_3="TowerRange"
+2d_physics/layer_4="Projectile"
+2d_physics/layer_5="Enemy"
+
 [rendering]
 
 environment/default_clear_color=Color( 0.443137, 0.611765, 0.733333, 1 )

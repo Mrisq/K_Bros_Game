@@ -1,15 +1,22 @@
 extends PathFollow2D
 
+# to determine how much damage this enemy can take, exported for external modification
+export var hitpoints = 3
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+# connecting to the hurtbox to receive the signals later
+onready var hurtbox = $HurtBox
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass 
 
 
 func _process(delta):
 	offset += .3
+
+
+# signal received from the hurtbox that a projectile hitbox has entered it
+func _on_HurtBox_area_entered(area):
+	hitpoints -= area.damage
+	
+	
