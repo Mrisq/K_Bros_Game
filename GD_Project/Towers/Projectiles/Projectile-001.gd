@@ -3,7 +3,9 @@
 extends Area2D
 
 
-const PROJECTILE_SPEED = 100
+export var speed = 100
+
+onready var hitbox = $Hitbox
 
 
 func _ready():
