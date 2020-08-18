@@ -31,6 +31,7 @@ func _on_MobTimer_timeout():
 		mob = mobScene.instance() # Instance a new mob scene
 		all_mobs.push_back(mob) # Add the instance to the mob array
 		get_node("../Enemy Path").add_child(mob) # Add the instance as a child of the path
+		mob.all_mobs_index = all_mobs.size() - 1 # give the instance it's array index
 		mobsSpawned += 1 # Add the new mob to the tally
 
 func remove_mob():

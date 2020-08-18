@@ -3,6 +3,9 @@ extends PathFollow2D
 # to determine how much damage this enemy can take, exported for external modification
 export var hitpoints = 3
 
+# The index of this instance in the all_mobs array
+var all_mobs_index
+
 # connecting to the hurtbox to receive the signals later
 onready var hurtbox = $HurtBox
 
