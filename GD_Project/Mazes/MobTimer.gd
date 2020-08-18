@@ -31,10 +31,19 @@ func _on_MobTimer_timeout():
 		mob = mobScene.instance() # Instance a new mob scene
 		all_mobs.push_back(mob) # Add the instance to the mob array
 		get_node("../Enemy Path").add_child(mob) # Add the instance as a child of the path
-		mob.all_mobs_index = all_mobs.size() - 1 # give the instance it's array index
+		mob.set_index(all_mobs.size() - 1) # give the instance it's array index
 		mobsSpawned += 1 # Add the new mob to the tally
 
-func remove_mob():
+func remove_mob(index):
 	##### THIS NEEDS TO BE CHANGED SO THAT IT REMOVES THE SPECIFIC MOB THAT
 	##### HAS REACHED THE END, NOT JUST THE FRONT ONE EVERY TIME...
-	all_mobs.pop_front()
+	print("---------------------------")
+	print(all_mobs)
+
+	all_mobs.remove(index)
+	var counter = 0
+	for i in all_mobs:
+		i.set_index(counter)
+		counter += 1
+	print(all_mobs)
+	#all_mobs.pop_front()

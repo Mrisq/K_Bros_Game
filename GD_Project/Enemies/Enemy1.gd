@@ -26,3 +26,14 @@ func _on_HurtBox_area_entered(area):
 # currently only used to stop the mobs at the end
 func set_speed(s):
 	speed = s
+
+func set_index(i):
+	all_mobs_index = i
+
+func get_index():
+	return all_mobs_index
+
+func remove_self():
+	print(all_mobs_index)
+	$"../../MobTimer".remove_mob(all_mobs_index)
+	queue_free()
