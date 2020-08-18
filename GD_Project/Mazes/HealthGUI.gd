@@ -1,39 +1,38 @@
 extends Control
 
+# Load the heart scene
 var heart = load("res://GD_Project/ingameGUI/Heart.tscn")
-var heart_instance
 
-var health
+var heart_instance # Heart instance
 
-var hearts_list = []
+var health #local healh variable
+
+var hearts_list = [] # The list of hearts
 
 func _ready():
 	$Label.visible = false
 
-#func update_health(currentHealth, maxHealth):
-#	$Label.text = currentHealth
-
-
-#func _on_Maze001_updateHealth(currentHealth):
-#	health = currentHealth
-#	$Label.text = String(currentHealth)
-
+# Function for setting the player's health
 func setHealth(h):
-	health = h
-#	$Label.text = String(h)
-	for h in range(health/2):
-		heart_instance = heart.instance()
-		$"HealthRow".add_child(heart_instance)
-		hearts_list.push_back(heart_instance)
+	health = h # set the local health variable
+	
+	# This adds the correct number of hearts to the screen based on
+	# the starting health
+	for i in range(health/2): # Each heart represents 2 health
+		heart_instance = heart.instance() # Instance a heart scene
+		$"HealthRow".add_child(heart_instance) # add the instance to the row container
+		hearts_list.push_back(heart_instance) # add the instance to the list of hearts
+	
+#	# This is a text label that displays the current health
+#	#I'll keep this in case we need to see the score onscreen
+	$Label.visible = false # set this to true to show the label
+	$Label.text = String(h)
 
-
+# Decrease the health by 1
 func decrementHealth():
 	health -= 1
-#	$Label.text = String(health)
+	
+	# Update the hearts. health/2 selects which heart to update
+	# since each heart represents two health
 	hearts_list[health/2].update_image(health)
-#	if health % 2 == 0: #even
-#		hearts_list[health/2].Full.visible = false
-#		hearts_list[health/2].Half.visible = true
-#	else: #odd
-#		hearts_list[health/2].Half.visible = false
-#		hearts_list[health/2].Empty.visible = true
+	

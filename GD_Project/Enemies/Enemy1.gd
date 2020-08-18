@@ -6,22 +6,20 @@ export var hitpoints = 3
 # connecting to the hurtbox to receive the signals later
 onready var hurtbox = $HurtBox
 
+# The mobs' speed (in pixels I think...)
 var speed = 2
 
 func _ready():
 	pass 
 
 func _process(delta):
-	offset += speed
-
+	offset += speed # Move the mob. Offset refers to how far along the path the mob is
 
 # signal received from the hurtbox that a projectile hitbox has entered it
 func _on_HurtBox_area_entered(area):
 	hitpoints -= area.damage
-	
-	
-func _on_Maze001_gameOver():
-	pass
 
+# set the speed variable. 
+# currently only used to stop the mobs at the end
 func set_speed(s):
 	speed = s
