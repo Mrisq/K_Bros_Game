@@ -8,19 +8,19 @@
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
-shader_param/outline_color = null
+shader_param/outline_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 2 )
-shader_param/outline_color = null
+shader_param/outline_color = Color( 0.435294, 0.196078, 0.196078, 1 )
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 2 )
-shader_param/outline_color = null
+shader_param/outline_color = Color( 0.435294, 0.196078, 0.196078, 1 )
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 2 )
-shader_param/outline_color = null
+shader_param/outline_color = Color( 0.435294, 0.196078, 0.196078, 1 )
 
 [node name="Heart" type="CenterContainer"]
 material = SubResource( 1 )

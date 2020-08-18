@@ -1,24 +1,14 @@
 extends CenterContainer
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	modulate = Color(0.7, 0.2, 0.3) # Tint the hearts red
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+# update the heart images to reflect the current health
 func update_image(health):
-	if health % 2 == 0: #even
+	
+	if health % 2 == 0: # if health is even the heart is going from half full to empty
 		$Half.visible = false
 		$Empty.visible = true
-	else: #odd
+	else: # if health is odd the heart is going from full to half full
 		$Full.visible = false
 		$Half.visible = true
