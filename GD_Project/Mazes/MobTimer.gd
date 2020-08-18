@@ -19,8 +19,8 @@ func _ready():
 
 # This function just stops every mob in the array
 func stop_mobs():
-	for mob in all_mobs: # For every mob in the mob instance array
-		mob.set_speed(0) # Set speed to 0
+	for m in all_mobs: # For every mob in the mob instance array
+		m.set_speed(0) # Set speed to 0
 
 # This function controls what happens when the timer runs out
 # In other words, this happens every x seconds until the timer is stopped
@@ -34,16 +34,13 @@ func _on_MobTimer_timeout():
 		mob.set_index(all_mobs.size() - 1) # give the instance it's array index
 		mobsSpawned += 1 # Add the new mob to the tally
 
+# This function removes the mob at index from the array
+# It then gives all the mobs their new index
 func remove_mob(index):
-	##### THIS NEEDS TO BE CHANGED SO THAT IT REMOVES THE SPECIFIC MOB THAT
-	##### HAS REACHED THE END, NOT JUST THE FRONT ONE EVERY TIME...
-	print("---------------------------")
-	print(all_mobs)
-
 	all_mobs.remove(index)
+	
 	var counter = 0
-	for i in all_mobs:
-		i.set_index(counter)
+	for m in all_mobs:
+		m.set_index(counter)
 		counter += 1
-	print(all_mobs)
-	#all_mobs.pop_front()
+

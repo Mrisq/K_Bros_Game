@@ -12,7 +12,6 @@ func _ready():
 func _on_Area2D_body_entered(body):
 	health -= 1 # Reduce player health by 1
 	body.get_parent().remove_self() # Remove the body's instance from the game
-	# $MobTimer.remove_mob() # Tell the timer to remove the mob
 	healthBar.decrementHealth() # Tell the health bar to update
 	
 	if health == 0: # if health has now run out

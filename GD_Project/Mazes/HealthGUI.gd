@@ -18,7 +18,7 @@ func setHealth(h):
 	
 	# This adds the correct number of hearts to the screen based on
 	# the starting health
-	for i in range(health/2): # Each heart represents 2 health
+	for _i in range(health/2): # Each heart represents 2 health
 		heart_instance = heart.instance() # Instance a heart scene
 		$"HealthRow".add_child(heart_instance) # add the instance to the row container
 		hearts_list.push_back(heart_instance) # add the instance to the list of hearts

@@ -1,5 +1,8 @@
 extends PathFollow2D
 
+# The mobs' speed (in pixels I think...?)
+var speed = 2
+
 # to determine how much damage this enemy can take, exported for external modification
 export var hitpoints = 3
 
@@ -8,9 +11,6 @@ var all_mobs_index
 
 # connecting to the hurtbox to receive the signals later
 onready var hurtbox = $HurtBox
-
-# The mobs' speed (in pixels I think...)
-var speed = 2
 
 func _ready():
 	pass 
@@ -27,13 +27,16 @@ func _on_HurtBox_area_entered(area):
 func set_speed(s):
 	speed = s
 
+# sets this mob's index in the all_mobs array
 func set_index(i):
 	all_mobs_index = i
 
+# gets this mob's index in the all_mobs array
 func get_index():
 	return all_mobs_index
 
+# Tell the timer to remove this mob from the mobs array
+# and then despawn 
 func remove_self():
-	print(all_mobs_index)
 	$"../../MobTimer".remove_mob(all_mobs_index)
 	queue_free()
