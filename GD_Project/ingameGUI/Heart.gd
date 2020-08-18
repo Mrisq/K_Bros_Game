@@ -1,4 +1,4 @@
-extends MarginContainer
+extends CenterContainer
 
 
 # Declare member variables here. Examples:
@@ -8,12 +8,17 @@ extends MarginContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	show_end_message(false)
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
-func show_end_message(show):
-	$CenterContainer.visible = show
+func update_image(health):
+	if health % 2 == 0: #even
+		$Half.visible = false
+		$Empty.visible = true
+	else: #odd
+		$Full.visible = false
+		$Half.visible = true

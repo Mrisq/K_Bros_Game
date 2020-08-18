@@ -1,12 +1,22 @@
 extends Node2D
 
-var life = 10
-signal updateHealth(currentHealth)
+var health = 10
+signal gameOver
+#signal updateHealth(currentHealth)
+
+onready var healthBar = $"HealthGUI"
 
 func _ready():
-	emit_signal("updateHealth", life)
+#	emit_signal("updateHealth", health)
+	healthBar.setHealth(health)
 
 func _on_Area2D_body_entered(body):
 	body.get_parent().queue_free()
-	life -= 1
-	emit_signal("updateHealth", life)
+	$MobTimer.remove_mob()
+	health -= 1
+	healthBar.decrementHealth()
+	if health == 0:
+		emit_signal("gameOver")
+		$MobTimer.stop_mobs()
+		$MarginContainer.show_end_message(true)
+
