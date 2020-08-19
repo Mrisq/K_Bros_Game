@@ -37,6 +37,7 @@ func _on_MobTimer_timeout():
 # This function removes the mob at index from the array
 # It then gives all the mobs their new index
 func remove_mob(index):
+	$Hit.play()
 	all_mobs.remove(index)
 	
 	var counter = 0
