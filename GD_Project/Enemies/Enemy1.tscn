@@ -6,12 +6,12 @@
 [ext_resource path="res://GD_Project/Enemies/HurtBox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://outline.shader" type="Shader" id=5]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 7.69075
-
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 5 )
 shader_param/outline_color = null
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 3.412
 
 [sub_resource type="Animation" id=3]
 length = 0.5
@@ -31,24 +31,17 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 3.412
+radius = 7.69075
 
 [node name="Enemy" type="PathFollow2D"]
 light_mask = 0
 rotate = false
 loop = false
 script = ExtResource( 3 )
-
-[node name="HurtBox" parent="." instance=ExtResource( 4 )]
-collision_layer = 8
-collision_mask = 0
-
-[node name="CollisionShape2D" parent="HurtBox" index="0"]
-light_mask = 0
-shape = SubResource( 1 )
+speed = 75
 
 [node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 2 )
+material = SubResource( 1 )
 position = Vector2( 0, 0.140305 )
 rotation = 0.349066
 texture = ExtResource( 1 )
@@ -56,16 +49,24 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 16, 16 )
 script = ExtResource( 2 )
 
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+collision_layer = 2147483664
+collision_mask = 40
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+light_mask = 32
+shape = SubResource( 2 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Bounce"
 anims/Bounce = SubResource( 3 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
-collision_layer = 2147483664
-collision_mask = 56
+[node name="HurtBox" parent="." instance=ExtResource( 4 )]
+collision_layer = 8
+collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
-light_mask = 32
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+light_mask = 0
 shape = SubResource( 4 )
 
 [editable path="HurtBox"]

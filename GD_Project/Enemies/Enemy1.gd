@@ -1,7 +1,7 @@
 extends PathFollow2D
 
 # The mobs' speed (in pixels I think...?)
-var speed = 2
+export var speed = 50
 
 # to determine how much damage this enemy can take, exported for external modification
 export var hitpoints = 3
@@ -15,8 +15,10 @@ onready var hurtbox = $HurtBox
 func _ready():
 	pass 
 
-func _process(delta):
-	offset += speed # Move the mob. Offset refers to how far along the path the mob is
+func _process(delta): # delta is the time since the last frame. It's a kind of 
+						# equalizer so that the game feels like it flows 
+						# smooth, regardless of actual framerate variance.
+	offset += speed * delta # Move the mob. Offset refers to how far along the path the mob is
 
 # signal received from the hurtbox that a projectile hitbox has entered it
 func _on_HurtBox_area_entered(area):
