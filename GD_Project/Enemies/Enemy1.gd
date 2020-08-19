@@ -1,7 +1,7 @@
 extends PathFollow2D
 
 # The mobs' speed (in pixels I think...?)
-export var speed = 50
+export var speed : int
 
 # to determine how much damage this enemy can take, exported for external modification
 export var hitpoints = 3
@@ -13,7 +13,7 @@ var all_mobs_index
 onready var hurtbox = $HurtBox
 
 func _ready():
-	pass 
+	pass
 
 func _process(delta): # delta is the time since the last frame. It's a kind of 
 						# equalizer so that the game feels like it flows 
@@ -40,5 +40,6 @@ func get_index():
 # Tell the timer to remove this mob from the mobs array
 # and then despawn 
 func remove_self():
+	
 	$"../../MobTimer".remove_mob(all_mobs_index)
 	queue_free()

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/pew2.wav-ac3aa643ba0b2b3e49ca4e2ba470aeeb.sample"
+
+[deps]
+
+source_file="res://GD_Project/Sounds/pew2.wav"
+dest_files=[ "res://.import/pew2.wav-ac3aa643ba0b2b3e49ca4e2ba470aeeb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

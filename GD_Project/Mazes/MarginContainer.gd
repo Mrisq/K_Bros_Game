@@ -6,4 +6,4 @@ func _ready():
 # Decide whether to show the end message. Show is a boolean
 # True shows the "You Died" message, and false hides it
 func show_end_message(show): 
-	$"CenterContainer/YouDied".visible = show
+	$"CenterContainer/VBox".visible = show
