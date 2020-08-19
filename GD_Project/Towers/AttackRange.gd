@@ -8,10 +8,10 @@ var targetAcquired = null
 var targetLost = null
 
 func _on_AttackRange_body_entered(body):
-	print("Enemy sighted!")
+	#print("Enemy sighted!")
 	targetAcquired = body
 
 func _on_AttackRange_body_exited(body):
-	print("Enemy out of range.")
+	#print("Enemy out of range.")
 	targetLost = body
 

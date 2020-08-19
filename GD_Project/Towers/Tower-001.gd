@@ -1,8 +1,8 @@
 extends StaticBody2D
 
 
-onready var attackRange = $AttackRange
-
+onready var attackRange = $AttackRange 
+# importing targets from the range collider, and storing in a list
 var enemiesInRange = []
 
 func _physics_process(delta):

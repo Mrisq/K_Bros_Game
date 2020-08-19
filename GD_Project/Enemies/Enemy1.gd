@@ -1,7 +1,7 @@
 extends PathFollow2D
 
 # The mobs' speed (in pixels I think...?)
-export var speed : int
+export var speed : int = 100
 
 # to determine how much damage this enemy can take, exported for external modification
 export var hitpoints = 3

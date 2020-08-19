@@ -39,7 +39,6 @@ light_mask = 0
 rotate = false
 loop = false
 script = ExtResource( 3 )
-speed = 300
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 1 )
