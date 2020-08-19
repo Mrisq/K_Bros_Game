@@ -1,19 +1,19 @@
 extends KinematicBody2D
 
 
-export (int) var rotationSpeed = 1.5
+export (int) var rotationSpeed = 1.5 # how fast the turret will turn
 
-var rotation_dir = 0
-var target = null
+var rotation_dir = 0 # natural state is no rotation
+onready var targetList = get_parent().enemiesInRange # access the enemies list
 
 
 func _physics_process(delta):
-	# I need to access the enemiesInRange list, in the parent Tower script,
-		# and if there is a target in the first slot, 
-		# pass it's direction_to into the rotation_dir
-	#print("aiming...")
-	#var target = get_parent().enemiesInRange[0]
-	#var rotation_dir = global_position.direction_to(get_parent().enemiesInRange[0])
-	#rotation += rotation_dir * rotationSpeed * delta
-	pass
+	if targetList:
+		var target = targetList[0] # identify the leading enemy
+		var targetPosition = global_position.direction_to(target.global_position)
+			# relative position of target from tower
+		print(targetPosition)
+		# Now I just have to rotate the tower towards that position...
+		#rotation += rotation_dir * rotationSpeed * delta
+
 
