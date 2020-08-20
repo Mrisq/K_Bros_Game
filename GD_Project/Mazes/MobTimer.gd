@@ -20,7 +20,10 @@ var all_mobs = []
 
 func _ready():
 	randy.randomize()
+
+func start_spawn_timer():
 	start() # Start the timer
+	_on_MobTimer_timeout() #run the timeout function once so we don't have to wait for the timer to run
 
 # This function just stops every mob in the array
 func stop_mobs():

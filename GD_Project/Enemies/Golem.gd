@@ -18,7 +18,7 @@ onready var hurtbox = $HurtBox
 
 func _ready():
 	randy.randomize()
-	speed = randy.randi_range(10,20)
+	speed = randy.randi_range(10,20) # give this mob a random speed
 
 func _process(delta): # delta is the time since the last frame. It's a kind of 
 						# equalizer so that the game feels like it flows 

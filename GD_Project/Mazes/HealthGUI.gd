@@ -29,10 +29,11 @@ func setHealth(h):
 
 # Decrease the health by 1
 func decreaseHealth(hits):
-	health -= hits
+	health -= hits # decrease the total health by the number of damage taken
 	
-	$Label.text = String(health)
+	$Label.text = String(health) #update health label, if visible
 	
+	# iterate through the hearts and update each one in turn
 	var idx = 0
 	for heart_img in hearts_list:
 		heart_img.update_image(health, idx+1)

@@ -4,7 +4,7 @@ var damage = 1 # the damage that this mob does to health when it gets to the end
 
 var randy = RandomNumberGenerator.new()
 
-# The mobs' speed (in pixels I think...?)
+# The mob's speed (in pixels I think...?)
 var speed
 
 # to determine how much damage this enemy can take, exported for external modification
@@ -18,7 +18,7 @@ onready var hurtbox = $HurtBox
 
 func _ready():
 	randy.randomize()
-	speed = randy.randi_range(30,40)
+	speed = randy.randi_range(30,40) # give this mob a random speed
 
 func _process(delta): # delta is the time since the last frame. It's a kind of 
 						# equalizer so that the game feels like it flows 
