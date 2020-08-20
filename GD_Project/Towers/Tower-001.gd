@@ -14,5 +14,4 @@ func _physics_process(delta):
 		enemiesInRange.erase(attackRange.targetLost)
 		attackRange.targetLost = null
 		#print(enemiesInRange)
-	
 

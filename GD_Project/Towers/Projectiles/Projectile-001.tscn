@@ -4,13 +4,13 @@
 [ext_resource path="res://GD_Project/Towers/Projectiles/Projectile-001.gd" type="Script" id=2]
 [ext_resource path="res://GD_Project/Towers/Projectiles/Hitbox.tscn" type="PackedScene" id=3]
 
-
 [sub_resource type="RayShape2D" id=1]
 length = 6.14113
 
-[node name="Projectile-001" type="Area2D"]
+[node name="Projectile-001" type="RigidBody2D"]
 collision_layer = 8
 collision_mask = 16
+gravity_scale = 0.0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
