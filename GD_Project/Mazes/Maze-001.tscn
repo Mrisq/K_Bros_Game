@@ -69,11 +69,11 @@ scale = Vector2( 1.00313, 1.01223 )
 curve = SubResource( 2 )
 
 [node name="FirstSpawnTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 0.5
 script = ExtResource( 12 )
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 1.1
+wait_time = 0.5
 script = ExtResource( 4 )
 
 [node name="Hit" type="AudioStreamPlayer" parent="MobTimer"]
