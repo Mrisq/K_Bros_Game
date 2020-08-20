@@ -68,7 +68,7 @@ scale = Vector2( 1.00313, 1.01223 )
 curve = SubResource( 2 )
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 1.1
 script = ExtResource( 4 )
 
 [node name="Hit" type="AudioStreamPlayer" parent="MobTimer"]
@@ -142,7 +142,6 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="HealthGUI"]
-visible = false
 margin_top = 16.0
 margin_right = 16.0
 margin_bottom = 30.0

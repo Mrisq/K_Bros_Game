@@ -1,15 +1,15 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://GD_Project/Enemies/Enemy1.gd" type="Script" id=1]
+[ext_resource path="res://GD_Project/Enemies/Goblin.gd" type="Script" id=1]
 [ext_resource path="res://GD_Project/Enemies/HurtBox.tscn" type="PackedScene" id=2]
-[ext_resource path="res://GD_Project/Enemies/Sprite.gd" type="Script" id=3]
+[ext_resource path="res://GD_Project/Enemies/GoblinSprite.gd" type="Script" id=3]
 [ext_resource path="res://outline.shader" type="Shader" id=4]
-[ext_resource path="res://GD_Project/Enemies/demon.png" type="Texture" id=5]
-[ext_resource path="res://GD_Project/Sounds/hit1.wav" type="AudioStream" id=10]
+[ext_resource path="res://GD_Project/Sounds/hit1.wav" type="AudioStream" id=5]
+[ext_resource path="res://GD_Project/Enemies/Enemy1_Plain.png" type="Texture" id=6]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 4 )
-shader_param/outline_color = null
+shader_param/outline_color = Color( 0.25098, 0.25098, 0.25098, 1 )
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 3.412
@@ -44,7 +44,7 @@ script = ExtResource( 1 )
 material = SubResource( 1 )
 position = Vector2( 0, 0.140305 )
 rotation = 0.349066
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 16, 16 )
 script = ExtResource( 3 )
@@ -70,7 +70,7 @@ light_mask = 0
 shape = SubResource( 4 )
 
 [node name="Hit" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 10 )
+stream = ExtResource( 5 )
 volume_db = -3.0
 
 [editable path="HurtBox"]

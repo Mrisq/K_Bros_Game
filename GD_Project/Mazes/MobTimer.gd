@@ -1,13 +1,28 @@
 extends Timer
-
 # This node spawns the enemy mobs at regular intervals
 
+var randy = RandomNumberGenerator.new()
+
+enum {
+	ZERO
+	GOBLIN
+	DEMON
+	GOLEM
+}
+
 # Load the mob scene so that the enemies can be spawned
-var mobScene = load("res://GD_Project/Enemies/Enemy1.tscn") 
+var gobScene = load("res://GD_Project/Enemies/Goblin.tscn") 
+var dobScene = load("res://GD_Project/Enemies/Demon.tscn") 
+var globScene = load("res://GD_Project/Enemies/Golem.tscn") 
 
 var mob # The current mob instance
 
 var mobsSpawned = 0 # Number of mobs already spawned
+
+var goblins : int
+var demons : int
+var golems : int
+
 var mobsTotal = 11 # Total number of mobs to be spawned this round
 
 # An array holding all the mob instances, so that we can
@@ -15,6 +30,7 @@ var mobsTotal = 11 # Total number of mobs to be spawned this round
 var all_mobs = [] 
 
 func _ready():
+	randy.randomize()
 	start() # Start the timer
 
 # This function just stops every mob in the array
@@ -28,7 +44,15 @@ func _on_MobTimer_timeout():
 	if mobsSpawned >= mobsTotal: # If we've spawned all the mobs:
 		stop() # Stop the timer
 	else: #if we haven't spawned all the mobs
-		mob = mobScene.instance() # Instance a new mob scene
+		
+		match randy.randi_range(1,3):
+			1:
+				mob = gobScene.instance() # Instance a new mob scene
+			2:
+				mob = dobScene.instance() # Instance a new mob scene
+			3:
+				mob = globScene.instance() # Instance a new mob scene
+		
 		all_mobs.push_back(mob) # Add the instance to the mob array
 		get_node("../Enemy Path").add_child(mob) # Add the instance as a child of the path
 		mob.set_index(all_mobs.size() - 1) # give the instance it's array index
