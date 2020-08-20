@@ -3,14 +3,7 @@ extends Timer
 
 var randy = RandomNumberGenerator.new()
 
-enum {
-	ZERO
-	GOBLIN
-	DEMON
-	GOLEM
-}
-
-# Load the mob scene so that the enemies can be spawned
+# Load the mob scenes so that the enemies can be spawned
 var gobScene = load("res://GD_Project/Enemies/Goblin.tscn") 
 var dobScene = load("res://GD_Project/Enemies/Demon.tscn") 
 var globScene = load("res://GD_Project/Enemies/Golem.tscn") 
@@ -19,11 +12,7 @@ var mob # The current mob instance
 
 var mobsSpawned = 0 # Number of mobs already spawned
 
-var goblins : int
-var demons : int
-var golems : int
-
-var mobsTotal = 11 # Total number of mobs to be spawned this round
+var mobsTotal = 14 # Total number of mobs to be spawned this round
 
 # An array holding all the mob instances, so that we can
 # refer to them later
@@ -45,7 +34,7 @@ func _on_MobTimer_timeout():
 		stop() # Stop the timer
 	else: #if we haven't spawned all the mobs
 		
-		match randy.randi_range(1,3):
+		match randy.randi_range(1,3): # Pick one of the three mob types at random and instance it
 			1:
 				mob = gobScene.instance() # Instance a new mob scene
 			2:

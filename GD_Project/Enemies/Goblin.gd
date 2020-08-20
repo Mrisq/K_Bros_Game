@@ -1,6 +1,6 @@
 extends PathFollow2D
 
-var damage = 1
+var damage = 1 # the damage that this mob does to health when it gets to the end
 
 var randy = RandomNumberGenerator.new()
 

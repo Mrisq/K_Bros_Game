@@ -10,7 +10,7 @@ var health #local healh variable
 var hearts_list = [] # The list of hearts
 
 func _ready():
-	$Label.visible = true
+	$Label.visible = false
 
 # Function for setting the player's health
 func setHealth(h):
