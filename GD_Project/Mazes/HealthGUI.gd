@@ -25,14 +25,17 @@ func setHealth(h):
 	
 #	# This is a text label that displays the current health
 #	#I'll keep this in case we need to see the score onscreen
-	$Label.visible = false # set this to true to show the label
-	$Label.text = String(h)
+	$Label.text = String(health)
 
 # Decrease the health by 1
-func decrementHealth():
-	health -= 1
+func decreaseHealth(hits):
+	health -= hits # decrease the total health by the number of damage taken
 	
-	# Update the hearts. health/2 selects which heart to update
-	# since each heart represents two health
-	hearts_list[health/2].update_image(health)
+	$Label.text = String(health) #update health label, if visible
+	
+	# iterate through the hearts and update each one in turn
+	var idx = 0
+	for heart_img in hearts_list:
+		heart_img.update_image(health, idx+1)
+		idx += 1
 	

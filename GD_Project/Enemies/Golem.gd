@@ -1,9 +1,11 @@
 extends PathFollow2D
 
-var damage = 1
+var damage = 3 # the damage that this mob does to health when it gets to the end
+
+var randy = RandomNumberGenerator.new()
 
 # The mobs' speed (in pixels I think...?)
-export var speed : int = 100
+var speed
 
 # to determine how much damage this enemy can take, exported for external modification
 export var hitpoints = 3
@@ -15,7 +17,8 @@ var all_mobs_index
 onready var hurtbox = $HurtBox
 
 func _ready():
-	pass
+	randy.randomize()
+	speed = randy.randi_range(10,20) # give this mob a random speed
 
 func _process(delta): # delta is the time since the last frame. It's a kind of 
 						# equalizer so that the game feels like it flows 
