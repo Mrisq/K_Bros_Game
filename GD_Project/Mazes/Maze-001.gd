@@ -2,7 +2,7 @@ extends Node2D
 
 var health = 10 # Player health
 
-onready var healthBar = $"HealthGUI" # The health bar GUI node
+onready var healthBar = $"GUI" # The health bar GUI node
 
 func _ready():
 	healthBar.setHealth(health) # Give the Health bar our starting health
@@ -18,5 +18,5 @@ func _on_Area2D_body_entered(body):
 	
 	if health <= 0: # if health has now run out
 		$MobTimer.stop_mobs() # Tell the timer to stop all of the remaining mobs' movement
-		$MarginContainer.show_end_message(true) # Show the end message
+		$EndMessage.show_end_message(true) # Show the end message
 
