@@ -1,8 +1,6 @@
 extends KinematicBody2D
 
 
-export (int) var rotationSpeed = 1.5 # how fast the turret will turn
-
 # Load the projectile scene so it can be instanced
 var projectileScene = load("res://GD_Project/Towers/Projectiles/Projectile-001.tscn")
 

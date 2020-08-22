@@ -1,4 +1,4 @@
-# Tower-003 - "Multi-Shot Model"
+# Tower-001 - "Base Model"
 
 extends StaticBody2D
 

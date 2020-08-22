@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://GD_Project/Graphics/grass-background.png" type="Texture" id=1]
 [ext_resource path="res://GD_Project/Graphics/brickwall-tilemap/tileset_brickwall-tilemap.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://GD_Project/Mazes/GUI.gd" type="Script" id=15]
 [ext_resource path="res://outline.shader" type="Shader" id=16]
 [ext_resource path="res://GD_Project/Mazes/CoinsImage.gd" type="Script" id=17]
+[ext_resource path="res://GD_Project/Towers/Tower-003.tscn" type="PackedScene" id=18]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -626,10 +627,13 @@ custom_fonts/font = ExtResource( 14 )
 text = "B A C K"
 
 [node name="Tower-001" parent="." instance=ExtResource( 8 )]
-position = Vector2( 105.249, 85.5513 )
+position = Vector2( 104.126, 78.2555 )
+
+[node name="Tower-003" parent="." instance=ExtResource( 18 )]
+position = Vector2( 183.261, 55.8061 )
 
 [node name="Tower-002" parent="." instance=ExtResource( 13 )]
-position = Vector2( 242.751, 159.634 )
+position = Vector2( 253.414, 104.633 )
 [connection signal="timeout" from="FirstSpawnTimer" to="FirstSpawnTimer" method="_on_FirstSpawnTimer_timeout"]
 [connection signal="timeout" from="MobTimer" to="MobTimer" method="_on_MobTimer_timeout"]
 [connection signal="body_entered" from="LevelEscape" to="." method="_on_Area2D_body_entered"]
