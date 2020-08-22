@@ -1,10 +1,8 @@
 extends KinematicBody2D
 
 
-export (int) var rotationSpeed = 1.5 # how fast the turret will turn
-
 # Load the projectile scene so it can be instanced
-var projectileScene = load("res://GD_Project/Towers/Projectiles/Projectile-001.tscn")
+var projectileScene = load("res://GD_Project/Towers/Projectiles/Projectile-002.tscn")
 
 
 var rotation_dir = 0 # natural state is no rotation
@@ -29,7 +27,7 @@ func _physics_process(delta):
 			var projectileInstance = projectileScene.instance()
 			projectileInstance.position = position
 			projectileInstance.rotation_degrees = rotation_degrees
-			projectileInstance.apply_impulse(Vector2(), Vector2(projectileInstance.speed, 0).rotated(rotation))
+			projectileInstance.apply_impulse(Vector2(), Vector2(projectileInstance.projectileSpeed, 0).rotated(rotation))
 			get_parent().add_child(projectileInstance)
 
 

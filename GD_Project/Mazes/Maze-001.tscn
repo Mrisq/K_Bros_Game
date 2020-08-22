@@ -20,6 +20,9 @@
 [ext_resource path="res://GD_Project/Mazes/TowerBuy.gd" type="Script" id=18]
 [ext_resource path="res://GD_Project/Mazes/BuyMenuPopup.gd" type="Script" id=19]
 [ext_resource path="res://GD_Project/Mazes/PopupCloseButton.gd" type="Script" id=20]
+[ext_resource path="res://GD_Project/Towers/Tower-001.tscn" type="PackedScene" id=21]
+[ext_resource path="res://GD_Project/Towers/Tower-002.tscn" type="PackedScene" id=22]
+[ext_resource path="res://GD_Project/Towers/Tower-003.tscn" type="PackedScene" id=23]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -834,6 +837,15 @@ margin_bottom = 25.0
 mouse_filter = 1
 custom_fonts/font = ExtResource( 14 )
 text = "B A C K"
+
+[node name="Tower-001" parent="." instance=ExtResource( 21 )]
+position = Vector2( 104.126, 78.2555 )
+
+[node name="Tower-003" parent="." instance=ExtResource( 23 )]
+position = Vector2( 183.261, 55.8061 )
+
+[node name="Tower-002" parent="." instance=ExtResource( 22 )]
+position = Vector2( 253.414, 104.633 )
 [connection signal="timeout" from="FirstSpawnTimer" to="FirstSpawnTimer" method="_on_FirstSpawnTimer_timeout"]
 [connection signal="timeout" from="MobTimer" to="MobTimer" method="_on_MobTimer_timeout"]
 [connection signal="body_entered" from="LevelEscape" to="." method="_on_Area2D_body_entered"]

@@ -1,4 +1,4 @@
-# Projectile-001.gd "Base Model"
+# Projectile-003.gd "Multi-shot Model"
 
 extends RigidBody2D
 

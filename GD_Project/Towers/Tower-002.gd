@@ -1,4 +1,4 @@
-# Tower-003 - "Multi-Shot Model"
+# Tower-002 - "Piercing Model"
 
 extends StaticBody2D
 
