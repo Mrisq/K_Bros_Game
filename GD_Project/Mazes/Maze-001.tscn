@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=77 format=2]
 
 [ext_resource path="res://GD_Project/Graphics/grass-background.png" type="Texture" id=1]
 [ext_resource path="res://GD_Project/Graphics/brickwall-tilemap/tileset_brickwall-tilemap.png" type="Texture" id=2]
@@ -7,14 +7,19 @@
 [ext_resource path="res://GD_Project/ingameGUI/Coins.png" type="Texture" id=5]
 [ext_resource path="res://YouDied.tscn" type="PackedScene" id=6]
 [ext_resource path="res://GD_Project/Mazes/MarginContainer.gd" type="Script" id=7]
+[ext_resource path="res://PanelStyle1.tres" type="StyleBox" id=8]
 [ext_resource path="res://GD_Project/Sounds/hit1.wav" type="AudioStream" id=9]
 [ext_resource path="res://GD_Project/Main Menu GUI/BlankButton.png" type="Texture" id=10]
 [ext_resource path="res://GD_Project/Mazes/BackButton.gd" type="Script" id=11]
 [ext_resource path="res://GD_Project/Mazes/FirstSpawnTimer.gd" type="Script" id=12]
+[ext_resource path="res://GD_Project/ingameGUI/tower_button.png" type="Texture" id=13]
 [ext_resource path="res://GD_Project/Fonts/PixAntiqua.tres" type="DynamicFont" id=14]
 [ext_resource path="res://GD_Project/Mazes/GUI.gd" type="Script" id=15]
 [ext_resource path="res://outline.shader" type="Shader" id=16]
 [ext_resource path="res://GD_Project/Mazes/CoinsImage.gd" type="Script" id=17]
+[ext_resource path="res://GD_Project/Mazes/TowerBuy.gd" type="Script" id=18]
+[ext_resource path="res://GD_Project/Mazes/BuyMenuPopup.gd" type="Script" id=19]
+[ext_resource path="res://GD_Project/Mazes/PopupCloseButton.gd" type="Script" id=20]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -474,9 +479,35 @@ _data = {
 [sub_resource type="RectangleShape2D" id=50]
 extents = Vector2( 16, 3.75043 )
 
+[sub_resource type="StyleBoxFlat" id=55]
+bg_color = Color( 0.137255, 0.192157, 0.27451, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=56]
+bg_color = Color( 0.25098, 0.25098, 0.25098, 1 )
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Theme" id=52]
+
 [sub_resource type="ShaderMaterial" id=51]
 shader = ExtResource( 16 )
 shader_param/outline_color = Color( 0.25098, 0.25098, 0.25098, 1 )
+
+[sub_resource type="StyleBoxFlat" id=54]
+bg_color = Color( 0.25098, 0.25098, 0.25098, 1 )
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="ShaderMaterial" id=53]
+shader = ExtResource( 16 )
+shader_param/outline_color = Color( 0, 0, 0, 1 )
 
 [node name="Maze-001" type="Node2D"]
 script = ExtResource( 3 )
@@ -521,13 +552,94 @@ shape = SubResource( 50 )
 [node name="GUI" type="Control" parent="."]
 margin_right = 320.0
 margin_bottom = 240.0
+mouse_filter = 2
 script = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="BuyMenuPopup" type="PopupPanel" parent="GUI"]
+visible = true
+margin_left = 8.0
+margin_top = 16.0
+margin_right = 312.0
+margin_bottom = 232.0
+custom_styles/panel = SubResource( 55 )
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/BuyMenuPopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="GUI/BuyMenuPopup/VBoxContainer"]
+margin_right = 304.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI/BuyMenuPopup/VBoxContainer"]
+margin_top = 4.0
+margin_right = 304.0
+margin_bottom = 28.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 0
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/BuyMenuPopup/VBoxContainer/MarginContainer"]
+margin_left = 8.0
+margin_right = 300.0
+margin_bottom = 20.0
+
+[node name="Label" type="Label" parent="GUI/BuyMenuPopup/VBoxContainer/MarginContainer/HBoxContainer"]
+margin_top = 4.0
+margin_right = 268.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 14 )
+text = "Towers & Upgrades"
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI/BuyMenuPopup/VBoxContainer/MarginContainer/HBoxContainer"]
+margin_left = 272.0
+margin_right = 292.0
+margin_bottom = 20.0
+
+[node name="Panel" type="Panel" parent="GUI/BuyMenuPopup/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+custom_styles/panel = SubResource( 56 )
+
+[node name="CenterContainer" type="CenterContainer" parent="GUI/BuyMenuPopup/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
+margin_right = 20.0
+margin_bottom = 20.0
+
+[node name="PopupCloseButton" type="Button" parent="GUI/BuyMenuPopup/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/CenterContainer"]
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 20 )
+
+[node name="Label" type="Label" parent="GUI/BuyMenuPopup/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/CenterContainer"]
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 13.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 14 )
+text = "x"
+
 [node name="Margins" type="MarginContainer" parent="GUI"]
 anchor_right = 1.0
+margin_bottom = 32.0
+mouse_filter = 2
 custom_constants/margin_right = 8
 custom_constants/margin_top = 8
 custom_constants/margin_left = 8
@@ -540,20 +652,77 @@ __meta__ = {
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 312.0
-margin_bottom = 24.0
-rect_min_size = Vector2( 0, 16 )
+margin_bottom = 28.0
+mouse_filter = 2
 
-[node name="HealthRow" type="HBoxContainer" parent="GUI/Margins/HBox"]
-margin_right = 272.0
-margin_bottom = 16.0
+[node name="HealthMarginer" type="MarginContainer" parent="GUI/Margins/HBox"]
+margin_right = 4.0
+margin_bottom = 20.0
+mouse_filter = 2
+
+[node name="Panel2" type="Panel" parent="GUI/Margins/HBox/HealthMarginer"]
+visible = false
+margin_right = 4.0
+margin_bottom = 20.0
+theme = SubResource( 52 )
+custom_styles/panel = ExtResource( 8 )
+
+[node name="Margarine" type="MarginContainer" parent="GUI/Margins/HBox/HealthMarginer"]
+margin_right = 4.0
+margin_bottom = 20.0
+custom_constants/margin_right = 2
+custom_constants/margin_top = 2
+custom_constants/margin_left = 2
+custom_constants/margin_bottom = 2
+
+[node name="HealthRow" type="HBoxContainer" parent="GUI/Margins/HBox/HealthMarginer/Margarine"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 2.0
+margin_bottom = 18.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TheExpander" type="Control" parent="GUI/Margins/HBox"]
+margin_left = 8.0
+margin_right = 244.0
+margin_bottom = 20.0
+mouse_filter = 2
 size_flags_horizontal = 3
 
-[node name="CoinsRow" type="HBoxContainer" parent="GUI/Margins/HBox"]
-margin_left = 276.0
-margin_right = 304.0
-margin_bottom = 16.0
+[node name="CoinMargins" type="MarginContainer" parent="GUI/Margins/HBox"]
+margin_left = 248.0
+margin_right = 280.0
+margin_bottom = 20.0
+mouse_filter = 2
 
-[node name="Coins" type="Label" parent="GUI/Margins/HBox/CoinsRow"]
+[node name="Panel" type="Panel" parent="GUI/Margins/HBox/CoinMargins"]
+visible = false
+margin_right = 32.0
+margin_bottom = 20.0
+custom_styles/panel = ExtResource( 8 )
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI/Margins/HBox/CoinMargins"]
+margin_right = 32.0
+margin_bottom = 20.0
+custom_constants/margin_right = 2
+custom_constants/margin_top = 2
+custom_constants/margin_left = 2
+custom_constants/margin_bottom = 2
+
+[node name="CoinsRow" type="HBoxContainer" parent="GUI/Margins/HBox/CoinMargins/MarginContainer"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 30.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coins" type="Label" parent="GUI/Margins/HBox/CoinMargins/MarginContainer/CoinsRow"]
 margin_top = 2.0
 margin_right = 8.0
 margin_bottom = 14.0
@@ -563,7 +732,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CoinsImage" type="TextureRect" parent="GUI/Margins/HBox/CoinsRow"]
+[node name="CoinsImage" type="TextureRect" parent="GUI/Margins/HBox/CoinMargins/MarginContainer/CoinsRow"]
 material = SubResource( 51 )
 margin_left = 12.0
 margin_right = 28.0
@@ -571,9 +740,47 @@ margin_bottom = 16.0
 texture = ExtResource( 5 )
 script = ExtResource( 17 )
 
+[node name="TowerBuyMargins" type="MarginContainer" parent="GUI/Margins/HBox"]
+margin_left = 284.0
+margin_right = 304.0
+margin_bottom = 20.0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="GUI/Margins/HBox/TowerBuyMargins"]
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+mouse_filter = 2
+custom_styles/panel = SubResource( 54 )
+
+[node name="CenterContainer" type="CenterContainer" parent="GUI/Margins/HBox/TowerBuyMargins"]
+margin_right = 20.0
+margin_bottom = 20.0
+mouse_filter = 2
+
+[node name="TowerBuyButton" type="Button" parent="GUI/Margins/HBox/TowerBuyMargins/CenterContainer"]
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 18 )
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Margins/HBox/TowerBuyMargins/CenterContainer"]
+modulate = Color( 0.784314, 0.784314, 0.784314, 1 )
+material = SubResource( 53 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 18.0
+margin_bottom = 18.0
+mouse_filter = 2
+texture = ExtResource( 13 )
+
 [node name="EndMessage" type="MarginContainer" parent="."]
 margin_right = 320.0
 margin_bottom = 240.0
+mouse_filter = 2
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -582,6 +789,7 @@ __meta__ = {
 [node name="CenterContainer" type="CenterContainer" parent="EndMessage"]
 margin_right = 320.0
 margin_bottom = 240.0
+mouse_filter = 2
 
 [node name="VBox" type="VBoxContainer" parent="EndMessage/CenterContainer"]
 visible = false
@@ -589,10 +797,12 @@ margin_left = 83.0
 margin_top = 86.0
 margin_right = 237.0
 margin_bottom = 153.0
+mouse_filter = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="EndMessage/CenterContainer/VBox"]
 margin_right = 154.0
 margin_bottom = 25.0
+mouse_filter = 2
 
 [node name="YouDied" parent="EndMessage/CenterContainer/VBox/CenterContainer" instance=ExtResource( 6 )]
 margin_left = 0.0
@@ -604,6 +814,7 @@ margin_bottom = 25.0
 margin_top = 29.0
 margin_right = 154.0
 margin_bottom = 67.0
+mouse_filter = 2
 
 [node name="EndButton" type="Button" parent="EndMessage/CenterContainer/VBox/CenterContainer2"]
 margin_left = 15.0
@@ -620,8 +831,11 @@ margin_left = 58.0
 margin_top = 13.0
 margin_right = 96.0
 margin_bottom = 25.0
+mouse_filter = 1
 custom_fonts/font = ExtResource( 14 )
 text = "B A C K"
 [connection signal="timeout" from="FirstSpawnTimer" to="FirstSpawnTimer" method="_on_FirstSpawnTimer_timeout"]
 [connection signal="timeout" from="MobTimer" to="MobTimer" method="_on_MobTimer_timeout"]
 [connection signal="body_entered" from="LevelEscape" to="." method="_on_Area2D_body_entered"]
+[connection signal="close_buy_menu" from="GUI/BuyMenuPopup/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/CenterContainer/PopupCloseButton" to="GUI/BuyMenuPopup" method="_on_PopupCloseButton_close_buy_menu"]
+[connection signal="open_buy_menu" from="GUI/Margins/HBox/TowerBuyMargins/CenterContainer/TowerBuyButton" to="GUI/BuyMenuPopup" method="_on_TowerBuyButton_open_buy_menu"]

@@ -21,7 +21,7 @@ func setHealth(h):
 	# the starting health
 	for _i in range(health/2): # Each heart represents 2 health
 		heart_instance = heart.instance() # Instance a heart scene
-		$"Margins/HBox/HealthRow".add_child(heart_instance) # add the instance to the row container
+		$"Margins/HBox/HealthMarginer/Margarine/HealthRow".add_child(heart_instance) # add the instance to the row container
 		hearts_list.push_back(heart_instance) # add the instance to the list of hearts
 	
 #	# This is a text label that displays the current health
