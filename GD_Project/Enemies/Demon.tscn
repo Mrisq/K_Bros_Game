@@ -39,6 +39,7 @@ light_mask = 0
 rotate = false
 loop = false
 script = ExtResource( 1 )
+hitpoints = 1
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 1 )
@@ -62,8 +63,6 @@ autoplay = "Bounce"
 anims/Bounce = SubResource( 3 )
 
 [node name="HurtBox" parent="." instance=ExtResource( 2 )]
-collision_layer = 8
-collision_mask = 0
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 light_mask = 0

@@ -12,11 +12,10 @@ onready var targetList = get_parent().enemiesInRange # access the enemies list
 
 # These work to limit the firing rate
 var elapsed_time = 0
-var firingRate = 1.0
+var firingRate = 0.5
 
 func _physics_process(delta):
 	elapsed_time += delta
-	
 	
 	if targetList and elapsed_time >= firingRate:
 		elapsed_time = 0
@@ -29,5 +28,6 @@ func _physics_process(delta):
 		projectileInstance.rotation_degrees = rotation_degrees
 		projectileInstance.apply_impulse(Vector2(), Vector2(projectileInstance.speed, 0).rotated(rotation))
 		get_parent().add_child(projectileInstance)
+
 
 
