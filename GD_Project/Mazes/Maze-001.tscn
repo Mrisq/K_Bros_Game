@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=80 format=2]
 
 [ext_resource path="res://GD_Project/Graphics/grass-background.png" type="Texture" id=1]
 [ext_resource path="res://GD_Project/Graphics/brickwall-tilemap/tileset_brickwall-tilemap.png" type="Texture" id=2]
@@ -482,7 +482,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id=50]
 extents = Vector2( 16, 3.75043 )
 
-[sub_resource type="StyleBoxFlat" id=55]
+[sub_resource type="StyleBoxFlat" id=51]
 bg_color = Color( 0.137255, 0.192157, 0.27451, 1 )
 border_width_left = 1
 border_width_top = 1
@@ -490,25 +490,25 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="StyleBoxFlat" id=56]
+[sub_resource type="StyleBoxFlat" id=52]
 bg_color = Color( 0.25098, 0.25098, 0.25098, 1 )
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="Theme" id=52]
+[sub_resource type="Theme" id=53]
 
-[sub_resource type="ShaderMaterial" id=51]
+[sub_resource type="ShaderMaterial" id=54]
 shader = ExtResource( 16 )
 shader_param/outline_color = Color( 0.25098, 0.25098, 0.25098, 1 )
 
-[sub_resource type="StyleBoxFlat" id=54]
+[sub_resource type="StyleBoxFlat" id=55]
 bg_color = Color( 0.25098, 0.25098, 0.25098, 1 )
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="ShaderMaterial" id=53]
+[sub_resource type="ShaderMaterial" id=56]
 shader = ExtResource( 16 )
 shader_param/outline_color = Color( 0, 0, 0, 1 )
 
@@ -567,7 +567,7 @@ margin_left = 8.0
 margin_top = 16.0
 margin_right = 312.0
 margin_bottom = 232.0
-custom_styles/panel = SubResource( 55 )
+custom_styles/panel = SubResource( 51 )
 script = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -576,17 +576,21 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/BuyMenuPopup"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 1.0
+margin_right = -1.0
+margin_bottom = -1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Control" type="Control" parent="GUI/BuyMenuPopup/VBoxContainer"]
-margin_right = 304.0
+margin_right = 302.0
 size_flags_horizontal = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="GUI/BuyMenuPopup/VBoxContainer"]
 margin_top = 4.0
-margin_right = 304.0
+margin_right = 302.0
 margin_bottom = 28.0
 custom_constants/margin_right = 4
 custom_constants/margin_top = 0
@@ -595,27 +599,27 @@ custom_constants/margin_bottom = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GUI/BuyMenuPopup/VBoxContainer/MarginContainer"]
 margin_left = 8.0
-margin_right = 300.0
+margin_right = 298.0
 margin_bottom = 20.0
 
 [node name="Label" type="Label" parent="GUI/BuyMenuPopup/VBoxContainer/MarginContainer/HBoxContainer"]
 margin_top = 4.0
-margin_right = 268.0
+margin_right = 266.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 14 )
 text = "Towers & Upgrades"
 
 [node name="MarginContainer" type="MarginContainer" parent="GUI/BuyMenuPopup/VBoxContainer/MarginContainer/HBoxContainer"]
-margin_left = 272.0
-margin_right = 292.0
+margin_left = 270.0
+margin_right = 290.0
 margin_bottom = 20.0
 
 [node name="Panel" type="Panel" parent="GUI/BuyMenuPopup/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
 margin_right = 20.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 56 )
+custom_styles/panel = SubResource( 52 )
 
 [node name="CenterContainer" type="CenterContainer" parent="GUI/BuyMenuPopup/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
 margin_right = 20.0
@@ -667,7 +671,7 @@ mouse_filter = 2
 visible = false
 margin_right = 4.0
 margin_bottom = 20.0
-theme = SubResource( 52 )
+theme = SubResource( 53 )
 custom_styles/panel = ExtResource( 8 )
 
 [node name="Margarine" type="MarginContainer" parent="GUI/Margins/HBox/HealthMarginer"]
@@ -736,7 +740,7 @@ __meta__ = {
 }
 
 [node name="CoinsImage" type="TextureRect" parent="GUI/Margins/HBox/CoinMargins/MarginContainer/CoinsRow"]
-material = SubResource( 51 )
+material = SubResource( 54 )
 margin_left = 12.0
 margin_right = 28.0
 margin_bottom = 16.0
@@ -754,7 +758,7 @@ margin_right = 20.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 20, 20 )
 mouse_filter = 2
-custom_styles/panel = SubResource( 54 )
+custom_styles/panel = SubResource( 55 )
 
 [node name="CenterContainer" type="CenterContainer" parent="GUI/Margins/HBox/TowerBuyMargins"]
 margin_right = 20.0
@@ -772,7 +776,7 @@ script = ExtResource( 18 )
 
 [node name="TextureRect" type="TextureRect" parent="GUI/Margins/HBox/TowerBuyMargins/CenterContainer"]
 modulate = Color( 0.784314, 0.784314, 0.784314, 1 )
-material = SubResource( 53 )
+material = SubResource( 56 )
 margin_left = 2.0
 margin_top = 2.0
 margin_right = 18.0
