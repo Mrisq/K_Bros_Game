@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://GD_Project/Enemies/Goblin.gd" type="Script" id=1]
+[ext_resource path="res://GD_Project/Enemies/goblin.png" type="Texture" id=2]
 [ext_resource path="res://GD_Project/Enemies/GoblinSprite.gd" type="Script" id=3]
 [ext_resource path="res://outline.shader" type="Shader" id=4]
 [ext_resource path="res://GD_Project/Sounds/hit1.wav" type="AudioStream" id=5]
-[ext_resource path="res://GD_Project/Enemies/Enemy1_Plain.png" type="Texture" id=6]
 [ext_resource path="res://GD_Project/Sounds/armor_hit1.wav" type="AudioStream" id=7]
 
 [sub_resource type="ShaderMaterial" id=1]
@@ -43,7 +43,7 @@ hitpoints = 1
 material = SubResource( 1 )
 position = Vector2( 0, 0.140305 )
 rotation = 0.349066
-texture = ExtResource( 6 )
+texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 16, 16 )
 script = ExtResource( 3 )
