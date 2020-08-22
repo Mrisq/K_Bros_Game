@@ -29,7 +29,7 @@ func _physics_process(delta):
 			var projectileInstance = projectileScene.instance()
 			projectileInstance.position = position
 			projectileInstance.rotation_degrees = rotation_degrees
-			projectileInstance.apply_impulse(Vector2(), Vector2(projectileInstance.speed, 0).rotated(rotation))
+			projectileInstance.apply_impulse(Vector2(), Vector2(projectileInstance.projectileSpeed, 0).rotated(rotation))
 			get_parent().add_child(projectileInstance)
 
 
