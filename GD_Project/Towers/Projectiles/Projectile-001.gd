@@ -3,8 +3,8 @@
 extends RigidBody2D
 
 
-export var speed = 100
-export var projectileRange = 50
+export var speed = 250
+export var projectileRange = 55
 
 onready var hitbox = $Hitbox
 

@@ -8,6 +8,7 @@ extends Area2D
 export var damage = 1
 
 func _on_Hitbox_body_entered(body):
+	body.get_parent().take_damage(damage)
 	queue_free()  # Presumably the projectile won't be destroyed
 					# before the enemy has registered the damage...
 

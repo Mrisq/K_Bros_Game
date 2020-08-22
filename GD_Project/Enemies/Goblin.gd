@@ -8,7 +8,7 @@ var randy = RandomNumberGenerator.new()
 var speed
 
 # to determine how much damage this enemy can take, exported for external modification
-export var hitpoints = 3
+export var hitpoints : int
 
 # The index of this instance in the all_mobs array
 var all_mobs_index
@@ -29,6 +29,12 @@ func _process(delta): # delta is the time since the last frame. It's a kind of
 func _on_HurtBox_area_entered(area):
 	hitpoints -= area.damage
 
+func take_damage(dmg):
+	hitpoints -= dmg
+	$TakeDamage.play()
+	if hitpoints <= 0:
+		remove_self()
+
 # set the speed variable. 
 # currently only used to stop the mobs at the end
 func set_speed(s):
@@ -45,6 +51,8 @@ func get_index():
 # Tell the timer to remove this mob from the mobs array
 # and then despawn 
 func remove_self():
-	
+	var current_text = $"../../GUI/Margins/HBox/CoinsRow/Coins".text
+	var new_text = int(current_text) + 1
+	$"../../GUI/Margins/HBox/CoinsRow/Coins".text = str(new_text)
 	$"../../MobTimer".remove_mob(all_mobs_index)
 	queue_free()
