@@ -5,7 +5,7 @@ extends Area2D
 # vary in size/shape
 
 # default damage, exported to allow modification
-export var damage = 2
+export var damage = 1
 
 func _on_Hitbox_body_entered(body):
 	body.get_parent().take_damage(damage)
