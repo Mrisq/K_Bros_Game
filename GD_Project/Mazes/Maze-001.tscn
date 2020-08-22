@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://GD_Project/Graphics/grass-background.png" type="Texture" id=1]
 [ext_resource path="res://GD_Project/Graphics/brickwall-tilemap/tileset_brickwall-tilemap.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://GD_Project/ingameGUI/Coins.png" type="Texture" id=5]
 [ext_resource path="res://YouDied.tscn" type="PackedScene" id=6]
 [ext_resource path="res://GD_Project/Mazes/MarginContainer.gd" type="Script" id=7]
+[ext_resource path="res://GD_Project/Towers/Tower-001.tscn" type="PackedScene" id=8]
 [ext_resource path="res://GD_Project/Sounds/hit1.wav" type="AudioStream" id=9]
 [ext_resource path="res://GD_Project/Main Menu GUI/BlankButton.png" type="Texture" id=10]
 [ext_resource path="res://GD_Project/Mazes/BackButton.gd" type="Script" id=11]
@@ -622,6 +623,9 @@ margin_right = 96.0
 margin_bottom = 25.0
 custom_fonts/font = ExtResource( 14 )
 text = "B A C K"
+
+[node name="Tower-001" parent="." instance=ExtResource( 8 )]
+position = Vector2( 104.688, 78.8165 )
 [connection signal="timeout" from="FirstSpawnTimer" to="FirstSpawnTimer" method="_on_FirstSpawnTimer_timeout"]
 [connection signal="timeout" from="MobTimer" to="MobTimer" method="_on_MobTimer_timeout"]
 [connection signal="body_entered" from="LevelEscape" to="." method="_on_Area2D_body_entered"]
