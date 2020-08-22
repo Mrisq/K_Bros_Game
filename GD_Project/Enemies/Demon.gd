@@ -1,20 +1,19 @@
 extends PathFollow2D
 
-var damage = 2 # the damage that this mob does to health when it gets to the end
-
-var randy = RandomNumberGenerator.new()
-
 # The mobs' speed (in pixels I think...?)
 var speed
-
+# the damage that this mob does to health when it gets to the end
+export var damage: int 
 # to determine how much damage this enemy can take, exported for external modification
-export var hitpoints : int
+export var hitpoints: int
 
 # The index of this instance in the all_mobs array
 var all_mobs_index
 
 # connecting to the hurtbox to receive the signals later
 onready var hurtbox = $HurtBox
+
+var randy = RandomNumberGenerator.new()
 
 func _ready():
 	randy.randomize()
