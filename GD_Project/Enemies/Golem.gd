@@ -35,6 +35,9 @@ func take_damage(dmg):
 	hitpoints -= dmg
 	$TakeDamage.play()
 	if hitpoints <= 0:
+		var current_text = $"../../GUI/Margins/HBox/CoinsRow/Coins".text
+		var new_text = int(current_text) + 1
+		$"../../GUI/Margins/HBox/CoinsRow/Coins".text = str(new_text)
 		remove_self()
 
 # set the speed variable. 
@@ -53,8 +56,5 @@ func get_index():
 # Tell the timer to remove this mob from the mobs array
 # and then despawn 
 func remove_self():
-	var current_text = $"../../GUI/Margins/HBox/CoinsRow/Coins".text
-	var new_text = int(current_text) + 1
-	$"../../GUI/Margins/HBox/CoinsRow/Coins".text = str(new_text)
 	$"../../MobTimer".remove_mob(all_mobs_index)
 	queue_free()
