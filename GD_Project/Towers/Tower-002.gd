@@ -1,4 +1,4 @@
-# Tower-001 - "Base Model"
+# Tower-002 - "Piercing Model"
 
 extends StaticBody2D
 

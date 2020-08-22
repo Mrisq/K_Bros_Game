@@ -1,4 +1,4 @@
-# Projectile-001.gd "Base Model"
+# Projectile-002.gd "Piercing Model"
 
 extends RigidBody2D
 
@@ -15,7 +15,7 @@ func _ready():
 
 func _on_Hitbox_body_entered(body):
 	body.get_parent().take_damage(damage)
-	queue_free()  # Projectile disappears after hitting an enemy
+	#queue_free()  # Piercing model does not disappear after hitting an enemy
 
 func _physics_process(delta):
 	# This section will destroy the projectile when it's reached it's range limit
