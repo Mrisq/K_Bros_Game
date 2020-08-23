@@ -6,4 +6,5 @@ func _ready():
 # Decide whether to show the end message. Show is a boolean
 # True shows the "You Died" message, and false hides it
 func show_end_message(show): 
+	get_parent().set_physics_process(false)
 	$"CenterContainer/VBox".visible = show
