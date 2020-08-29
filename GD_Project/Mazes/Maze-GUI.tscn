@@ -1,0 +1,342 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://outline.shader" type="Shader" id=1]
+[ext_resource path="res://GD_Project/ingameGUI/tower_button.png" type="Texture" id=2]
+[ext_resource path="res://GD_Project/ingameGUI/Coins.png" type="Texture" id=3]
+[ext_resource path="res://GD_Project/Main Menu GUI/BlankButton.png" type="Texture" id=4]
+[ext_resource path="res://GD_Project/Mazes/CoinsImage.gd" type="Script" id=5]
+[ext_resource path="res://GD_Project/Mazes/BackButton.gd" type="Script" id=6]
+[ext_resource path="res://GD_Project/Mazes/MarginContainer.gd" type="Script" id=7]
+[ext_resource path="res://GD_Project/Mazes/GUI.gd" type="Script" id=8]
+[ext_resource path="res://YouDied.tscn" type="PackedScene" id=9]
+[ext_resource path="res://GD_Project/Fonts/PixAntiqua.tres" type="DynamicFont" id=10]
+[ext_resource path="res://GD_Project/Fonts/PixAntiqua24.tres" type="DynamicFont" id=11]
+[ext_resource path="res://GD_Project/Mazes/BuyMenuPopup.gd" type="Script" id=12]
+[ext_resource path="res://GD_Project/Mazes/TowerBuy.gd" type="Script" id=13]
+[ext_resource path="res://GD_Project/Mazes/PopupCloseButton.gd" type="Script" id=14]
+[ext_resource path="res://PanelStyle1.tres" type="StyleBox" id=15]
+
+[sub_resource type="StyleBoxFlat" id=51]
+bg_color = Color( 0.137255, 0.192157, 0.27451, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=52]
+bg_color = Color( 0.25098, 0.25098, 0.25098, 1 )
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Theme" id=53]
+
+[sub_resource type="ShaderMaterial" id=54]
+shader = ExtResource( 1 )
+shader_param/outline_color = Color( 0.25098, 0.25098, 0.25098, 1 )
+
+[sub_resource type="StyleBoxFlat" id=55]
+bg_color = Color( 0.25098, 0.25098, 0.25098, 1 )
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="ShaderMaterial" id=56]
+shader = ExtResource( 1 )
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[node name="GUI" type="Control"]
+margin_right = 320.0
+margin_bottom = 240.0
+mouse_filter = 2
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BuyMenuPopup" type="PopupPanel" parent="."]
+visible = true
+margin_left = 8.0
+margin_top = 16.0
+margin_right = 312.0
+margin_bottom = 232.0
+custom_styles/panel = SubResource( 51 )
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuyMenuPopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 1.0
+margin_right = -1.0
+margin_bottom = -1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="BuyMenuPopup/VBoxContainer"]
+margin_right = 302.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="BuyMenuPopup/VBoxContainer"]
+margin_top = 4.0
+margin_right = 302.0
+margin_bottom = 28.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 0
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuyMenuPopup/VBoxContainer/MarginContainer"]
+margin_left = 8.0
+margin_right = 298.0
+margin_bottom = 20.0
+
+[node name="Label" type="Label" parent="BuyMenuPopup/VBoxContainer/MarginContainer/HBoxContainer"]
+margin_top = 4.0
+margin_right = 266.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 10 )
+text = "Towers & Upgrades"
+
+[node name="MarginContainer" type="MarginContainer" parent="BuyMenuPopup/VBoxContainer/MarginContainer/HBoxContainer"]
+margin_left = 270.0
+margin_right = 290.0
+margin_bottom = 20.0
+
+[node name="Panel" type="Panel" parent="BuyMenuPopup/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+custom_styles/panel = SubResource( 52 )
+
+[node name="CenterContainer" type="CenterContainer" parent="BuyMenuPopup/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
+margin_right = 20.0
+margin_bottom = 20.0
+
+[node name="PopupCloseButton" type="Button" parent="BuyMenuPopup/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/CenterContainer"]
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="BuyMenuPopup/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/CenterContainer"]
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 13.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 10 )
+text = "x"
+
+[node name="Margins" type="MarginContainer" parent="."]
+anchor_right = 1.0
+margin_bottom = 32.0
+mouse_filter = 2
+custom_constants/margin_right = 8
+custom_constants/margin_top = 8
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox" type="HBoxContainer" parent="Margins"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 312.0
+margin_bottom = 28.0
+mouse_filter = 2
+
+[node name="HealthMarginer" type="MarginContainer" parent="Margins/HBox"]
+margin_right = 4.0
+margin_bottom = 20.0
+mouse_filter = 2
+
+[node name="Panel2" type="Panel" parent="Margins/HBox/HealthMarginer"]
+visible = false
+margin_right = 4.0
+margin_bottom = 20.0
+theme = SubResource( 53 )
+custom_styles/panel = ExtResource( 15 )
+
+[node name="Margarine" type="MarginContainer" parent="Margins/HBox/HealthMarginer"]
+margin_right = 4.0
+margin_bottom = 20.0
+custom_constants/margin_right = 2
+custom_constants/margin_top = 2
+custom_constants/margin_left = 2
+custom_constants/margin_bottom = 2
+
+[node name="HealthRow" type="HBoxContainer" parent="Margins/HBox/HealthMarginer/Margarine"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 2.0
+margin_bottom = 18.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TheExpander" type="Control" parent="Margins/HBox"]
+margin_left = 8.0
+margin_right = 244.0
+margin_bottom = 20.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="CoinMargins" type="MarginContainer" parent="Margins/HBox"]
+margin_left = 248.0
+margin_right = 280.0
+margin_bottom = 20.0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="Margins/HBox/CoinMargins"]
+visible = false
+margin_right = 32.0
+margin_bottom = 20.0
+custom_styles/panel = ExtResource( 15 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Margins/HBox/CoinMargins"]
+margin_right = 32.0
+margin_bottom = 20.0
+custom_constants/margin_right = 2
+custom_constants/margin_top = 2
+custom_constants/margin_left = 2
+custom_constants/margin_bottom = 2
+
+[node name="CoinsRow" type="HBoxContainer" parent="Margins/HBox/CoinMargins/MarginContainer"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 30.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coins" type="Label" parent="Margins/HBox/CoinMargins/MarginContainer/CoinsRow"]
+margin_top = 2.0
+margin_right = 8.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 10 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CoinsImage" type="TextureRect" parent="Margins/HBox/CoinMargins/MarginContainer/CoinsRow"]
+material = SubResource( 54 )
+margin_left = 12.0
+margin_right = 28.0
+margin_bottom = 16.0
+texture = ExtResource( 3 )
+script = ExtResource( 5 )
+
+[node name="TowerBuyMargins" type="MarginContainer" parent="Margins/HBox"]
+margin_left = 284.0
+margin_right = 304.0
+margin_bottom = 20.0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="Margins/HBox/TowerBuyMargins"]
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+mouse_filter = 2
+custom_styles/panel = SubResource( 55 )
+
+[node name="CenterContainer" type="CenterContainer" parent="Margins/HBox/TowerBuyMargins"]
+margin_right = 20.0
+margin_bottom = 20.0
+mouse_filter = 2
+
+[node name="TowerBuyButton" type="Button" parent="Margins/HBox/TowerBuyMargins/CenterContainer"]
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 13 )
+
+[node name="TextureRect" type="TextureRect" parent="Margins/HBox/TowerBuyMargins/CenterContainer"]
+modulate = Color( 0.784314, 0.784314, 0.784314, 1 )
+material = SubResource( 56 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 18.0
+margin_bottom = 18.0
+mouse_filter = 2
+texture = ExtResource( 2 )
+
+[node name="EndMessage" type="MarginContainer" parent="."]
+margin_right = 320.0
+margin_bottom = 240.0
+mouse_filter = 2
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="EndMessage"]
+margin_right = 320.0
+margin_bottom = 240.0
+mouse_filter = 2
+
+[node name="VBox" type="VBoxContainer" parent="EndMessage/CenterContainer"]
+visible = false
+margin_left = 83.0
+margin_top = 86.0
+margin_right = 237.0
+margin_bottom = 153.0
+mouse_filter = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="EndMessage/CenterContainer/VBox"]
+margin_right = 154.0
+margin_bottom = 25.0
+mouse_filter = 2
+
+[node name="YouDied" type="Label" parent="EndMessage/CenterContainer/VBox/CenterContainer" instance=ExtResource( 9 )]
+margin_right = 154.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 11 )
+text = "Y O U   D I E D !"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer2" type="CenterContainer" parent="EndMessage/CenterContainer/VBox"]
+margin_top = 29.0
+margin_right = 154.0
+margin_bottom = 67.0
+mouse_filter = 2
+
+[node name="EndButton" type="Button" parent="EndMessage/CenterContainer/VBox/CenterContainer2"]
+margin_left = 15.0
+margin_right = 139.0
+margin_bottom = 38.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 4 )
+flat = true
+script = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="EndMessage/CenterContainer/VBox/CenterContainer2"]
+margin_left = 58.0
+margin_top = 13.0
+margin_right = 96.0
+margin_bottom = 25.0
+mouse_filter = 1
+custom_fonts/font = ExtResource( 10 )
+text = "B A C K"
+[connection signal="close_buy_menu" from="BuyMenuPopup/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/CenterContainer/PopupCloseButton" to="BuyMenuPopup" method="_on_PopupCloseButton_close_buy_menu"]
+[connection signal="open_buy_menu" from="Margins/HBox/TowerBuyMargins/CenterContainer/TowerBuyButton" to="BuyMenuPopup" method="_on_TowerBuyButton_open_buy_menu"]

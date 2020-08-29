@@ -35,9 +35,9 @@ func take_damage(dmg):
 	hitpoints -= dmg
 	$TakeDamage.play()
 	if hitpoints <= 0:
-		var current_text = $"../../GUI/Margins/HBox/CoinMargins/MarginContainer/CoinsRow/Coins".text
+		var current_text = $"../../Maze-GUI/Margins/HBox/CoinMargins/MarginContainer/CoinsRow/Coins".text
 		var new_text = int(current_text) + 1
-		$"../../GUI/Margins/HBox/CoinMargins/MarginContainer/CoinsRow/Coins".text = str(new_text)
+		$"../../Maze-GUI/Margins/HBox/CoinMargins/MarginContainer/CoinsRow/Coins".text = str(new_text)
 		remove_self()
 
 # set the speed variable. 

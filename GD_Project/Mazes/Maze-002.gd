@@ -19,4 +19,3 @@ func _on_Area2D_body_entered(body):
 	if health <= 0: # if health has now run out
 		$MobTimer.stop_mobs() # Tell the timer to stop all of the remaining mobs' movement
 		$"Maze-GUI"/EndMessage.show_end_message(true) # Show the end message
-
